@@ -1,0 +1,4 @@
+Model,MAE (eV)
+Baseline,0.6976
+Linear Regression,0.5876
+Random Forest (5-CV),0.4692

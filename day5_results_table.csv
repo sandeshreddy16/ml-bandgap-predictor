@@ -1,0 +1,6 @@
+Model,MAE (eV),Notes
+Baseline (predict mean),0.6976 eV,Dumbest possible model
+Linear Regression,0.5876 eV,Linear features ->bandgap
+Random Forest (5-CV),0.469 ± 0.011 eV,Day 4 result
+XGBoost default,0.398,"Default params, no tuning"
+XGBoost tuned (5-CV),0.466 ± 0.010,GridSearchCV optimised <- BEST
