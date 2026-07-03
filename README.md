@@ -57,13 +57,11 @@ correlates with wider electronic bandgaps.
 
 ```
 ml-materials/
-├── day1_setup.ipynb              # environment + first plots
-├── day2_pandas_cleaning.ipynb     # data cleaning + outlier removal
-├── day3_pymatgen.ipynb            # crystal structure analysis
-├── day4_first_ml_model.ipynb      # Magpie features + baseline models
-├── day5_xgboost.ipynb             # XGBoost + hyperparameter tuning
-├── materials_clean.csv           # cleaned dataset
-├── features_ready.csv            # 145 Magpie features
+├── 01_data_collection.ipynb              # environment + first plots
+├── 02_data_cleaning.ipynb     # data cleaning + outlier removal
+├── 03_structure_analysis.ipynb           # crystal structure analysis
+├── 04_feature_engineering.ipynb      # Magpie features + baseline models
+├── 05_model_training.ipynb             # XGBoost + hyperparameter tuning
 ├── *.png                         # result figures
 └── README.md
 ```
