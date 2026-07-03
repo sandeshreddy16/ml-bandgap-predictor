@@ -41,7 +41,7 @@ candidate materials without running DFT for every candidate.
 **Best model: XGBoost** — MAE of 0.466 ± 0.010 eV via 5-fold
 cross-validation, a [0.7]% improvement over the naive baseline.
 
-![Results](day5_xgb_results.png)
+![Results](xgb_results.png)
 
 ## Key Finding
 
@@ -51,7 +51,7 @@ This is physically consistent — larger electronegativity differences
 between elements indicate more ionic bonding character, which
 correlates with wider electronic bandgaps.
 
-![Feature Importance](day5_xgb_importance.png)
+![Feature Importance](xgb_importance.png)
 
 ## Repository Structure
 
