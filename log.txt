@@ -1,5 +1,0 @@
-14/05/26
-today i learned basics of numpy,pandas,matplotlib(scatter plot , histograph) 
-and i learned about how to access real life material data through the API client with more then 20000 real crystals comparing their bandgap, formation energy ,formula.
-in the scatterd plot of bandgap stability , i limited the crystals because it was too clustered and i it was difficult to get the required information so using df_clean i filtered out based on the conditions and limiting it to some 19000 crystals.
-so, day1 is completed.
