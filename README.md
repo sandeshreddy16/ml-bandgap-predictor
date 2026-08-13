@@ -53,7 +53,7 @@ with only a small difference in MAE. Random Forest was selected for the
 deployed application because its existing prediction pipeline was stable
 and validated.
 
-![Results](xgb_results.png)
+![Results](day5_xgb_results.png)
 
 ## Key Finding
 
@@ -63,7 +63,7 @@ This is physically consistent — larger electronegativity differences
 between elements indicate more ionic bonding character, which
 correlates with wider electronic bandgaps.
 
-![Feature Importance](xgb_importance.png)
+![Feature Importance](day5_xgb_importance.png)
 
 ## Limitations
 
