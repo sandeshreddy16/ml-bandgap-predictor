@@ -1,28 +1,13 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
+# Ignore everything
+*
 
-# Virtual environments
-venv/
-.venv/
-env/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Environment variables
-.env
-
-# VS Code
-.vscode/
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-
-day1.ipynb
+# Keep these files
+!.gitignore
+!01_data_collection.ipynb
+!02_data_cleaning.ipynb
+!03_structure_analysis.ipynb
+!04_feature_engineering.ipynb
+!05_model_training.ipynb
+!README.md
+!day5_xgb_results.png
+!day5_xgb_importance.png

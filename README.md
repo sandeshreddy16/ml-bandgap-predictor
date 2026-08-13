@@ -1,6 +1,6 @@
 # ML Bandgap Predictor
 
-Predicting electronic bandgap of crystalline materials from chemical
+Predicts electronic bandgap of crystalline materials from chemical
 composition using machine learning, trained on Materials Project data.
 
 ## Problem
@@ -14,32 +14,44 @@ candidate materials without running DFT for every candidate.
 ## Dataset
 
 - **Source:** Materials Project (materialsproject.org)
-- **Size:** [500] crystal structures
-- **Features:** 145 Magpie composition descriptors (matminer)
+- **Dataset:** Materials Project crystal structures
+- **Scope:** Semiconductors with band gaps between 0.5–3.5 eV (see
+  Limitations below)
+- **Features:** 132 Magpie composition descriptors (matminer)
 - **Target:** DFT-calculated bandgap (eV)
 
 ## Methods
 
 1. Downloaded crystal structures via Materials Project API
 2. Cleaned data — removed outliers, missing values, duplicates
-3. Generated 145 composition-based features using matminer
+3. Generated 132 composition-based features using matminer
    (ElementProperty, Magpie preset)
-4. Trained and compared 4 models: Baseline, Linear Regression,
-   Random Forest, XGBoost
+4. Trained and compared 5 models: Baseline, Linear Regression,
+   Random Forest, XGBoost (default), XGBoost (tuned)
 5. Tuned XGBoost hyperparameters using GridSearchCV
-6. Evaluated all models using 5-fold cross-validation
-
+6. Evaluated all models using 5-fold cross-validation for a fair,
+   consistent comparison
 ## Results
 
-| Model                  | MAE (eV)        |
-|-------------------------|-----------------|
-| Baseline (predict mean) | 0.6976          |
-| Linear Regression       | 0.5876          |
-| Random Forest           | 0.469 ± 0.011   |
-| XGBoost (tuned)          | **0.466 ± 0.010** |
+| Model                    | MAE (eV)          |
+|---------------------------|--------------------|
+| Baseline (predict mean)   | 0.7072             |
+| Linear Regression         | 0.5919             |
+| Random Forest (5-CV)      | 0.492 ± 0.032      |
+| XGBoost default (5-CV)    | 0.489 ± 0.032      |
+| XGBoost tuned (5-CV)      | **0.487 ± 0.035**  |
 
-**Best model: XGBoost** — MAE of 0.466 ± 0.010 eV via 5-fold
-cross-validation, a [0.7]% improvement over the naive baseline.
+**Best-performing model in cross-validation:** XGBoost (tuned), with an MAE of
+**0.487 ± 0.035 eV** via 5-fold cross-validation, representing roughly a
+31% improvement over the naive baseline.
+
+**Model deployed in the web application:** Random Forest, with a 5-fold
+cross-validation MAE of **0.492 ± 0.032 eV**.
+
+The Random Forest and XGBoost models perform comparably on this dataset,
+with only a small difference in MAE. Random Forest was selected for the
+deployed application because its existing prediction pipeline was stable
+and validated.
 
 ![Results](xgb_results.png)
 
@@ -52,6 +64,13 @@ between elements indicate more ionic bonding character, which
 correlates with wider electronic bandgaps.
 
 ![Feature Importance](xgb_importance.png)
+
+## Limitations
+
+Model is trained on 0.5–3.5 eV band gaps only. Tested on known
+semiconductors outside this range (e.g. ZnO, InSb) and predictions
+were unreliable — tree models can't extrapolate beyond their training
+range. Best used for materials expected to fall within 0.5–3.5 eV.
 
 ## Repository Structure
 
